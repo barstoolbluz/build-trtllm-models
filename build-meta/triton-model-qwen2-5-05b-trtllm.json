@@ -1,0 +1,7 @@
+{
+  "build_version": 1,
+  "force_increment": 0,
+  "git_rev": "0000000000000000000000000000000000000000",
+  "git_rev_short": "0000000",
+  "changelog": "Initial package: Qwen2.5-0.5B TRT-LLM engine (float16, r26.02)."
+}
