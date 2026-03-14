@@ -131,6 +131,11 @@ class TritonPythonModel:
         )
 
         # --- Step 3: Decode and send responses ---
+        # TRT-LLM decoupled mode sends one token per response (not
+        # cumulative).  We accumulate token IDs ourselves and compute
+        # text deltas via decode(all) - decode(all-but-last) to handle
+        # BPE boundaries correctly.
+        all_token_ids = []
         prev_text = ""
         prev_resp = None
 
@@ -144,7 +149,7 @@ class TritonPythonModel:
             if prev_resp is not None:
                 sender.send(prev_resp)
 
-            # Decode current response
+            # Extract new token(s) from this response
             output_ids = pb_utils.get_output_tensor_by_name(
                 trtllm_resp, "output_ids"
             ).as_numpy()
@@ -153,9 +158,11 @@ class TritonPythonModel:
             ).as_numpy()
 
             seq_len = int(seq_lens[0][0])
-            token_ids = output_ids[0][0][:seq_len].tolist()
+            new_ids = output_ids[0][0][:seq_len].tolist()
+            all_token_ids.extend(new_ids)
+
             full_text = self.tokenizer.decode(
-                token_ids, skip_special_tokens=True
+                all_token_ids, skip_special_tokens=True
             )
 
             if is_streaming:
