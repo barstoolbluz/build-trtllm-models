@@ -22,15 +22,30 @@ class TritonPythonModel:
                 req, "SEQUENCE_LENGTH"
             ).as_numpy()
 
+            streaming_tensor = pb_utils.get_input_tensor_by_name(
+                req, "STREAMING"
+            )
+            is_streaming = False
+            if streaming_tensor is not None:
+                is_streaming = bool(streaming_tensor.as_numpy().flatten()[0])
+
             texts = []
             for batch_idx in range(tokens.shape[0]):
                 for beam_idx in range(tokens.shape[1]):
                     seq_len = seq_lens[batch_idx][beam_idx]
                     token_ids = tokens[batch_idx][beam_idx][:seq_len].tolist()
-                    text = self.tokenizer.decode(
+                    full_text = self.tokenizer.decode(
                         token_ids, skip_special_tokens=True
                     )
-                    texts.append(text)
+
+                    if is_streaming and seq_len > 1:
+                        prev_ids = token_ids[:-1]
+                        prev_text = self.tokenizer.decode(
+                            prev_ids, skip_special_tokens=True
+                        )
+                        texts.append(full_text[len(prev_text):])
+                    else:
+                        texts.append(full_text)
 
             output = np.array(texts, dtype=object)
             responses.append(

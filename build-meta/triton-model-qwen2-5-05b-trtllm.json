@@ -1,7 +1,7 @@
 {
-  "build_version": 10,
+  "build_version": 11,
   "force_increment": 0,
-  "git_rev": "e1f5d81edd184f0bb46d2cc23b3cded0dba26d45",
-  "git_rev_short": "e1f5d81",
-  "changelog": "Add ensemble model (preprocessing, postprocessing, ensemble configs) for OpenAI frontend."
+  "git_rev": "68f747859a28ba575ad896a871d6e3a8e2856213",
+  "git_rev_short": "68f7478",
+  "changelog": "Enable streaming: decoupled mode + postprocessing delta computation."
 }

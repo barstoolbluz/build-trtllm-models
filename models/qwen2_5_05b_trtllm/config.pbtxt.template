@@ -3,7 +3,7 @@ backend: "tensorrtllm"
 max_batch_size: 8
 
 model_transaction_policy {
-  decoupled: false
+  decoupled: true
 }
 
 dynamic_batching {
@@ -456,7 +456,7 @@ parameters: {
 parameters: {
   key: "decoupled_mode"
   value: {
-    string_value: "false"
+    string_value: "true"
   }
 }
 parameters: {
