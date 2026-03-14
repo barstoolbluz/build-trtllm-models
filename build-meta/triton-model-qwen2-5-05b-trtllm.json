@@ -1,7 +1,7 @@
 {
-  "build_version": 6,
+  "build_version": 8,
   "force_increment": 0,
-  "git_rev": "74ccde4026ce430bb9415995a61d3f909e505be4",
-  "git_rev_short": "74ccde4",
-  "changelog": "Add generate extension I/O for OpenAI frontend compatibility."
+  "git_rev": "3aa91fa85119bb2c4c937f8e5305c7f1f2fdfadd",
+  "git_rev_short": "3aa91fa",
+  "changelog": "Add stream input for generate extension."
 }
