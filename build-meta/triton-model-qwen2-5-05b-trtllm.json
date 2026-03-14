@@ -1,7 +1,7 @@
 {
-  "build_version": 11,
+  "build_version": 12,
   "force_increment": 0,
-  "git_rev": "68f747859a28ba575ad896a871d6e3a8e2856213",
-  "git_rev_short": "68f7478",
+  "git_rev": "ae407fcc45973351ca5cc6f912e96e00028d324e",
+  "git_rev_short": "ae407fc",
   "changelog": "Enable streaming: decoupled mode + postprocessing delta computation."
 }
