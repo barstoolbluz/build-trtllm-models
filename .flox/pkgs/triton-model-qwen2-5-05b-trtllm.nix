@@ -20,7 +20,8 @@
 #     tokenizer -> ../qwen2_5_05b_trtllm/tokenizer
 #     1/model.py             - detokenization (Python backend)
 #   $out/share/models/qwen2_5_05b_trtllm_ensemble/
-#     config.pbtxt           - static ensemble DAG config
+#     config.pbtxt.template  - @TOKENIZER_DIR@ (BLS Python model)
+#     1/model.py             - BLS orchestration + streaming delta computation
 { pkgs ? import <nixpkgs> {} }:
 
 let
@@ -87,10 +88,12 @@ in pkgs.stdenv.mkDerivation {
     cp ${../../models/${modelName}_postprocessing/1/model.py} "$postDir/1/model.py"
     ln -s ../qwen2_5_05b_trtllm/tokenizer "$postDir/tokenizer"
 
-    # Ensemble model
+    # Ensemble model (BLS — Python backend orchestrator for streaming)
     ensDir="$out/share/models/${modelName}_ensemble"
     mkdir -p "$ensDir/1"
-    cp ${../../models/${modelName}_ensemble/config.pbtxt} "$ensDir/config.pbtxt"
+    cp ${../../models/${modelName}_ensemble/config.pbtxt.template} "$ensDir/config.pbtxt.template"
+    cp ${../../models/${modelName}_ensemble/1/model.py} "$ensDir/1/model.py"
+    ln -s ../qwen2_5_05b_trtllm/tokenizer "$ensDir/tokenizer"
 
     # Version marker
     mkdir -p "$out/share/${pname}"
