@@ -137,6 +137,13 @@ input [
     optional: true
   },
   {
+    name: "stream"
+    data_type: TYPE_BOOL
+    dims: [ 1 ]
+    reshape: { shape: [ ] }
+    optional: true
+  },
+  {
     name: "text_input"
     data_type: TYPE_STRING
     dims: [ -1 ]
