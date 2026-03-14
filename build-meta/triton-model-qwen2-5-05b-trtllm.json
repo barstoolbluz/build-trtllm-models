@@ -1,7 +1,7 @@
 {
-  "build_version": 14,
+  "build_version": 15,
   "force_increment": 0,
-  "git_rev": "162a183f8e0d3ab9c632632ef26f01241506e316",
-  "git_rev_short": "162a183",
-  "changelog": "Replace static ensemble with BLS model for streaming support."
+  "git_rev": "d5aa2059afa458d6cc9d99e160b4076d99d36906",
+  "git_rev_short": "d5aa205",
+  "changelog": "Fix streaming delta: accumulate token IDs across per-token responses."
 }
