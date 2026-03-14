@@ -11,6 +11,16 @@
 #     engine/                - TRT-LLM engine files
 #     tokenizer/             - tokenizer files
 #     1/                     - empty version directory (Triton convention)
+#   $out/share/models/qwen2_5_05b_trtllm_preprocessing/
+#     config.pbtxt.template  - @TOKENIZER_DIR@
+#     tokenizer -> ../qwen2_5_05b_trtllm/tokenizer
+#     1/model.py             - tokenization (Python backend)
+#   $out/share/models/qwen2_5_05b_trtllm_postprocessing/
+#     config.pbtxt.template  - @TOKENIZER_DIR@
+#     tokenizer -> ../qwen2_5_05b_trtllm/tokenizer
+#     1/model.py             - detokenization (Python backend)
+#   $out/share/models/qwen2_5_05b_trtllm_ensemble/
+#     config.pbtxt           - static ensemble DAG config
 { pkgs ? import <nixpkgs> {} }:
 
 let
@@ -62,6 +72,25 @@ in pkgs.stdenv.mkDerivation {
 
     # Empty version directory (Triton convention)
     mkdir -p "$modelDir/1"
+
+    # Preprocessing model
+    preDir="$out/share/models/${modelName}_preprocessing"
+    mkdir -p "$preDir/1"
+    cp ${../../models/${modelName}_preprocessing/config.pbtxt.template} "$preDir/config.pbtxt.template"
+    cp ${../../models/${modelName}_preprocessing/1/model.py} "$preDir/1/model.py"
+    ln -s ../qwen2_5_05b_trtllm/tokenizer "$preDir/tokenizer"
+
+    # Postprocessing model
+    postDir="$out/share/models/${modelName}_postprocessing"
+    mkdir -p "$postDir/1"
+    cp ${../../models/${modelName}_postprocessing/config.pbtxt.template} "$postDir/config.pbtxt.template"
+    cp ${../../models/${modelName}_postprocessing/1/model.py} "$postDir/1/model.py"
+    ln -s ../qwen2_5_05b_trtllm/tokenizer "$postDir/tokenizer"
+
+    # Ensemble model
+    ensDir="$out/share/models/${modelName}_ensemble"
+    mkdir -p "$ensDir/1"
+    cp ${../../models/${modelName}_ensemble/config.pbtxt} "$ensDir/config.pbtxt"
 
     # Version marker
     mkdir -p "$out/share/${pname}"

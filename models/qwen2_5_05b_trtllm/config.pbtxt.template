@@ -137,36 +137,9 @@ input [
     optional: true
   },
   {
-    name: "stream"
-    data_type: TYPE_BOOL
-    dims: [ 1 ]
-    reshape: { shape: [ ] }
-    optional: true
-  },
-  {
-    name: "text_input"
-    data_type: TYPE_STRING
-    dims: [ -1 ]
-    optional: true
-  },
-  {
-    name: "max_tokens"
-    data_type: TYPE_INT32
-    dims: [ 1 ]
-    reshape: { shape: [ ] }
-    optional: true
-  },
-  {
     name: "stop_words"
     data_type: TYPE_STRING
     dims: [ -1 ]
-    optional: true
-  },
-  {
-    name: "top_p"
-    data_type: TYPE_FP32
-    dims: [ 1 ]
-    reshape: { shape: [ ] }
     optional: true
   },
   {
@@ -192,13 +165,6 @@ input [
   },
   {
     name: "return_num_output_tokens"
-    data_type: TYPE_BOOL
-    dims: [ 1 ]
-    reshape: { shape: [ ] }
-    optional: true
-  },
-  {
-    name: "sampling_param_exclude_input_from_output"
     data_type: TYPE_BOOL
     dims: [ 1 ]
     reshape: { shape: [ ] }
@@ -230,21 +196,6 @@ output [
   {
     name: "batch_index"
     data_type: TYPE_INT32
-    dims: [ 1 ]
-  },
-  {
-    name: "text_output"
-    data_type: TYPE_STRING
-    dims: [ -1 ]
-  },
-  {
-    name: "num_input_tokens"
-    data_type: TYPE_UINT64
-    dims: [ 1 ]
-  },
-  {
-    name: "num_output_tokens"
-    data_type: TYPE_UINT64
     dims: [ 1 ]
   }
 ]
