@@ -1,7 +1,7 @@
 {
-  "build_version": 1,
+  "build_version": 18,
   "force_increment": 0,
-  "git_rev": "b23a5b4f1e392adffaeff7d144bcc1186464e081",
-  "git_rev_short": "b23a5b4",
-  "changelog": "Initial Phi-4-mini-instruct INT4 AWQ model package."
+  "git_rev": "199a7d1176772125e95d0c3a7dbc359d3e00d40c",
+  "git_rev_short": "199a7d1",
+  "changelog": "Fix end-of-turn token detection in preprocessing."
 }

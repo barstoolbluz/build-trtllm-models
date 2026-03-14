@@ -1,7 +1,7 @@
 {
-  "build_version": 15,
+  "build_version": 18,
   "force_increment": 0,
-  "git_rev": "d5aa2059afa458d6cc9d99e160b4076d99d36906",
-  "git_rev_short": "d5aa205",
-  "changelog": "Fix streaming delta: accumulate token IDs across per-token responses."
+  "git_rev": "199a7d1176772125e95d0c3a7dbc359d3e00d40c",
+  "git_rev_short": "199a7d1",
+  "changelog": "Fix end-of-turn token detection in preprocessing."
 }
