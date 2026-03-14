@@ -1,0 +1,7 @@
+{
+  "build_version": 1,
+  "force_increment": 0,
+  "git_rev": "b23a5b4f1e392adffaeff7d144bcc1186464e081",
+  "git_rev_short": "b23a5b4",
+  "changelog": "Initial Phi-4-mini-instruct INT4 AWQ model package."
+}
