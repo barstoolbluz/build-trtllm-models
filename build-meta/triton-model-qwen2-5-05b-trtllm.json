@@ -1,7 +1,7 @@
 {
-  "build_version": 2,
+  "build_version": 6,
   "force_increment": 0,
-  "git_rev": "1eb2ab51aae52d91610f9f089cabf125d789dc0d",
-  "git_rev_short": "1eb2ab5",
-  "changelog": "Initial package: Qwen2.5-0.5B TRT-LLM engine (float16, r26.02)."
+  "git_rev": "74ccde4026ce430bb9415995a61d3f909e505be4",
+  "git_rev_short": "74ccde4",
+  "changelog": "Add generate extension I/O for OpenAI frontend compatibility."
 }
