@@ -1,7 +1,7 @@
 {
   "build_version": 1,
   "force_increment": 0,
-  "git_rev": "e80f7cef46b51f901faa596bb746d9cc4d80dc54",
-  "git_rev_short": "e80f7ce",
-  "changelog": "Initial Phi-4-mini-instruct INT4 AWQ engine for SM 86 (RTX 3080)."
+  "git_rev": "e9f7325f9f7196b8608a75577afff515e6e52990",
+  "git_rev_short": "e9f7325",
+  "changelog": "Rebuild engine with max_batch_size=8, max_seq_len=4096 for 16 GB VRAM."
 }
