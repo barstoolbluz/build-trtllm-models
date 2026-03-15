@@ -1,0 +1,7 @@
+{
+  "build_version": 1,
+  "force_increment": 0,
+  "git_rev": "f702a0df1cc33fa99025431d44a14552815f2317",
+  "git_rev_short": "f702a0d",
+  "changelog": "Initial Phi-4-mini-instruct INT4 AWQ engine for SM 86 (RTX 3080)."
+}
