@@ -39,12 +39,12 @@ let
 
   bundlePart0 = pkgs.fetchurl {
     url = "https://github.com/barstoolbluz/build-trtllm-models/releases/download/v26.02/phi4_mini_sm86_trtllm-r26.02.tar.gz.partaa";
-    hash = "sha256:ace7867e45a7045628e3999a4930f727808933769e2a3f83bbb9e2576ef293d3";
+    hash = "sha256:5f95ccd0494d55e25ed32bd7c794cead9963f20d72428cc40cb01ca9d2838437";
   };
 
   bundlePart1 = pkgs.fetchurl {
     url = "https://github.com/barstoolbluz/build-trtllm-models/releases/download/v26.02/phi4_mini_sm86_trtllm-r26.02.tar.gz.partab";
-    hash = "sha256:b2a936c1c0966380fed84c7d26a7be50844f315025a48dcbdb784df357fe0c3b";
+    hash = "sha256:1db7fd3bef973bda44213d3794e620dee59cc971b9c18327f9bf7e01e3d373c0";
   };
 
   configTemplate = ../../models/${modelName}/config.pbtxt.template;
